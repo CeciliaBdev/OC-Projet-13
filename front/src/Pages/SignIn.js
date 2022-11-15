@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { userActions } from '../store/user'
+import { userLogin } from '../store/userActions'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
@@ -14,20 +14,20 @@ function SignIn() {
   // envoi formulaire
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(email)
-    console.log(password)
-    dispatch(userActions.login({ email, password }))
+    console.log('email', email)
+    console.log('password', password)
+    dispatch(userLogin({ email, password }))
   }
-  const user = useSelector((state) => state.user)
+  const { loading, userInfo, error } = useSelector((state) => state.user)
 
   useEffect(() => {
-    if (user.isLogged == true) {
-      console.log('OK')
+    if (userInfo) {
+      console.log(' signin OK')
       nav('/user')
     } else {
-      console.log('nok')
+      console.log(' signin nok')
     }
-  }, [user])
+  }, [nav, userInfo])
 
   return (
     <div>
