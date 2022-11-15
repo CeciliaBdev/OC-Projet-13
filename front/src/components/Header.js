@@ -1,5 +1,6 @@
 import logo from '../assets/argentBankLogo.png'
 import { Link } from 'react-router-dom'
+import React from 'react'
 
 function Header() {
   return (
@@ -9,15 +10,14 @@ function Header() {
           <img src={logo} alt="logo application" />
         </Link>
       </div>
-      <div>
-        <Link
-          to="/SignIn"
-          className="flex items-center justify-around gap-2 mr-5"
-        >
-          <i className="fa-solid fa-circle-user"></i>
-          <p>Sign In</p>
-        </Link>
-      </div>
+
+      <Link
+        to="/SignIn"
+        className="flex items-center justify-around gap-2 mr-5"
+      >
+        <i className="fa-solid fa-circle-user"></i>
+        <p>Sign In</p>
+      </Link>
     </div>
   )
 }

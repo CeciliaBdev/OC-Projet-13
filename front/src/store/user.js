@@ -26,6 +26,14 @@ const userSlice = createSlice({
       state.isLogged = true
       state.token = token
     },
+    logout(state) {
+      state.id = null
+      state.email = null
+      state.firstName = null
+      state.lastName = null
+      state.isLogged = false
+      localStorage.removeItem('userToken')
+    },
   },
 })
 

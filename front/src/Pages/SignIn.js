@@ -1,9 +1,9 @@
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userActions } from '../store/user'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 function SignIn() {
   const [email, setEmail] = useState()
@@ -38,7 +38,7 @@ function SignIn() {
             <i className="fa-solid fa-circle-user text-center mb-4"></i>
             <h2 className="text-center mb-4 text-xl">Sign In</h2>
             <form onSubmit={handleSubmit}>
-              <label htmlFor="username"> Username</label>
+              <label htmlFor="username">Username</label>
               <input
                 type="text"
                 id="username"
