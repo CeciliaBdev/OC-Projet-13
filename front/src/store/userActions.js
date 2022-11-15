@@ -4,7 +4,7 @@ import axios from 'axios'
 // userActions.js
 export const userLogin = createAsyncThunk(
   'user/login',
-  async ({ email, password }, { rejectWithValue }) => {
+  async ({ email, password, firstName }, { rejectWithValue }) => {
     try {
       // configure header's Content-Type as JSON
       const config = {
@@ -14,12 +14,12 @@ export const userLogin = createAsyncThunk(
       }
       const { data } = await axios.post(
         'http://localhost:3001/api/v1/user/login',
-        { email, password },
+        { email, password, firstName },
         config
       )
       // store user's token in local storage
       localStorage.setItem('userToken', data.userToken)
-      return data
+      return { data }
     } catch (error) {
       // return custom error message from API if any
       if (error.response && error.response.data.message) {

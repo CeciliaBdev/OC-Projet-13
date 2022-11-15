@@ -12,10 +12,14 @@ const initialState = {
   userToken: null, // for storing the JWT
   error: null,
   success: false, // for monitoring the registration process.
+  //modif
+  firstName: null,
+  lastName: null,
 }
 
 const userSlice = createSlice({
   name: 'user',
+  //
   initialState,
   reducers: {
     logout: (state) => {
@@ -44,5 +48,5 @@ const userSlice = createSlice({
   },
 })
 
-export const { logout } = userSlice.actions
+export const { login, logout } = userSlice.actions
 export default userSlice.reducer

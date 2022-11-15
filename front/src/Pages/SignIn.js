@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogin } from '../store/userActions'
+import { login } from '../store/user'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
@@ -11,14 +12,7 @@ function SignIn() {
   const nav = useNavigate()
   const dispatch = useDispatch()
 
-  // envoi formulaire
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('email', email)
-    console.log('password', password)
-    dispatch(userLogin({ email, password }))
-  }
-  const { loading, userInfo, error } = useSelector((state) => state.user)
+  const { userInfo } = useSelector((state) => state.user)
 
   useEffect(() => {
     if (userInfo) {
@@ -28,6 +22,14 @@ function SignIn() {
       console.log(' signin nok')
     }
   }, [nav, userInfo])
+
+  // envoi formulaire
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('email', email)
+    console.log('password', password)
+    dispatch(userLogin({ email, password }))
+  }
 
   return (
     <div>
