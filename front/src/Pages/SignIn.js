@@ -45,6 +45,7 @@ function SignIn() {
                 className="form-control block px-4 py-2 border border-solid border-[#2c3e50] w-[100%] mb-3 rounded"
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="entrer votre email"
+                required
               />
               <label htmlFor="password"> Password</label>
               <input
@@ -52,6 +53,7 @@ function SignIn() {
                 id="password"
                 className="form-control block px-4 py-2 border border-solid border-[#2c3e50] w-[100%] rounded"
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
               <div className="flex gap-3 my-3">
                 <input id="remeber" type="checkbox" />
