@@ -1,20 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { userLogin } from './userActions'
 
-// initialize userToken from local storage
 const userToken = localStorage.getItem('userToken')
   ? localStorage.getItem('userToken')
   : null
 
 const initialState = {
-  loading: false,
-  userInfo: null, // for user object
-  userToken: null, // for storing the JWT
-  error: null,
-  success: false, // for monitoring the registration process.
-  //modif
+  id: null,
   firstName: null,
   lastName: null,
+  email: null,
+  login: false,
+  userToken,
 }
 
 const userSlice = createSlice({
@@ -22,31 +18,25 @@ const userSlice = createSlice({
   //
   initialState,
   reducers: {
+    login(state, action) {
+      state.id = action.payload.id
+      state.firstName = action.payload.firstName
+      state.lastName = action.payload.lastName
+      state.email = action.payload.email
+      state.login = true
+      state.userToken = localStorage.getItem('userToken')
+    },
     logout: (state) => {
-      localStorage.removeItem('userToken') // deletes token from storage
-      state.loading = false
-      state.userInfo = null
+      state.id = null
+      state.firstName = null
+      state.lastName = null
+      state.email = null
+      state.login = null
       state.userToken = null
-      state.error = null
-    },
-  },
-  extraReducers: {
-    // login user
-    [userLogin.pending]: (state) => {
-      state.loading = true
-      state.error = null
-    },
-    [userLogin.fulfilled]: (state, { payload }) => {
-      state.loading = false
-      state.userInfo = payload
-      state.userToken = payload.userToken
-    },
-    [userLogin.rejected]: (state, { payload }) => {
-      state.loading = false
-      state.error = payload
     },
   },
 })
 
 export const { login, logout } = userSlice.actions
+
 export default userSlice.reducer
