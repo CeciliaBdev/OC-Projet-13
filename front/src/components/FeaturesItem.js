@@ -30,13 +30,13 @@ function FeaturesItem() {
         let image
 
         // affichage de l'icone suivant le 'type'
-        if (data.type == 'chat') {
-          image = <img src={icon_chat} alt="Chat Icon" className="w-24" />
+        if (data.type === 'chat') {
+          image = <img src={icon_chat} alt="Chat Icon" className="w-24 " />
         }
-        if (data.type == 'money') {
+        if (data.type === 'money') {
           image = <img src={icon_money} alt="Money Icon" className="w-24" />
         }
-        if (data.type == 'security') {
+        if (data.type === 'security') {
           image = (
             <img src={icon_security} alt="Security Icon" className="w-24" />
           )
@@ -45,13 +45,13 @@ function FeaturesItem() {
         return (
           <div
             key={data.title}
-            className=" text-center flex flex-col gap-3 w-60 "
+            className=" text-center flex flex-col gap-3 w-64 h-72 "
           >
             <div className="h-40 w-40  p-5 border-[10px] border-[#00bc77] rounded-full mx-auto">
               {image}
             </div>
             <p className="font-bold">{data.title}</p>
-            <p className="font-light">{data.text}</p>
+            <p className="font-light text-sm">{data.text}</p>
           </div>
         )
       })}
