@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 import axios from 'axios'
 import { isEditing } from '../store/user'
+import Transaction from '../components/Transaction'
 
 function User() {
   const dispatch = useDispatch()
@@ -41,7 +42,7 @@ function User() {
     <div>
       <Logout />
 
-      <div className=" flex flex-col h-[100vh] bg-[#13072B]  text-white font-bold pt-8 items-center gap-3">
+      <div className=" flex flex-col h-[100vh] w-[100vw]  bg-[#13072B]  text-white font-bold pt-8 items-center gap-3">
         <p className="text-2xl">Welcome back</p>
 
         {isEdit == false ? (
@@ -97,6 +98,9 @@ function User() {
         >
           Edit Name
         </button>
+        <div className="w-[100vh] mt-12">
+          <Transaction />
+        </div>
       </div>
 
       <Footer />
