@@ -49,14 +49,14 @@ function SignIn() {
         password: password,
       })
       .then((response) => {
-        // dans la reponse: je recois le token
+        // dans la reponse: je recois 'Bearer + token '
         axios.defaults.headers[
           'Authorization'
         ] = `Bearer ${response.data.body.token}`
 
         localStorage.setItem('userToken', response.data.body.token)
 
-        // recupère données user
+        // recupère données user sur api /user/profile
         axios
           .post('http://localhost:3001/api/v1/user/profile')
           .then((response) => {

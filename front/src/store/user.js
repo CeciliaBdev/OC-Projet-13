@@ -11,6 +11,7 @@ const initialState = {
   email: null,
   login: false,
   userToken,
+  isEdit: false,
 }
 
 const userSlice = createSlice({
@@ -34,9 +35,15 @@ const userSlice = createSlice({
       state.login = null
       state.userToken = null
     },
+    isEditing: (state, action) => {
+      // on recupere la nouvelle 'identité'
+      state.firstName = action.payload.firstName
+      state.lastName = action.payload.lastName
+      state.isEdit = true // on a édité l'user
+    },
   },
 })
 
-export const { login, logout } = userSlice.actions
+export const { login, logout, isEditing } = userSlice.actions
 
 export default userSlice.reducer
