@@ -32,9 +32,9 @@ function User() {
       .then((response) => dispatch(isEditing(response.data.body)))
   }
 
-  //j'annule la modification de l'identité
-  const cancelEdit = () => {
+  const cancelName = () => {
     console.log('cancel')
+    setClicked((clicked) => !clicked) // menu apparait (flex)
   }
 
   return (
@@ -82,7 +82,9 @@ function User() {
             </button>
             <button
               className="bg-[white] p-2 w-24 text-sm  border border-[purple] text-purple-500 "
-              onClick={() => cancelEdit()}
+              onClick={() => {
+                cancelName()
+              }}
             >
               Cancel
             </button>
