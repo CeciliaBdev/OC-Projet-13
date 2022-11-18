@@ -30,11 +30,13 @@ function Table() {
       <tbody {...getTableBodyProps()} className="border bg-[white] ">
         {rows.map((row) => {
           prepareRow(row)
+
           return (
             <tr {...row.getRowProps()} className="border">
               {row.cells.map((cell) => {
                 return (
-                  <td {...cell.getCellProps()} className="py-4">
+                  <td {...cell.getCellProps()} className="py-4 ">
+                    {/* <i className="fa-sharp fa-solid fa-chevron-down"></i> */}
                     {cell.render('Cell')}
                   </td>
                 )
