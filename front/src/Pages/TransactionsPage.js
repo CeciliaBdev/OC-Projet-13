@@ -4,7 +4,7 @@ function TransactionsPage() {
   return (
     <div>
       <Logout />
-      Transaction PAge
+      Transaction Page
     </div>
   )
 }

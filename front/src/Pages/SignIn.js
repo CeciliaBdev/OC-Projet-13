@@ -20,6 +20,7 @@ function SignIn() {
     e.preventDefault()
     console.log('email', email)
     console.log('password', password)
+    // console.log('id', id)
 
     // response body swagger
     // {
@@ -61,7 +62,11 @@ function SignIn() {
           .post('http://localhost:3001/api/v1/user/profile')
           .then((response) => {
             dispatch(login(response.data.body))
-            nav('/user')
+            // console.log('response id', response.data.body.id)
+            // je recupère l'id du user
+            // let id = response.data.body.id
+            // nav(`/user/:${id}`)
+            nav(`/user`)
           })
       })
   }
