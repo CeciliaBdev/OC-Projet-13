@@ -1,6 +1,7 @@
 import { useParams } from 'react-router'
 import Footer from '../components/Footer'
 import Logout from '../components/Logout'
+import Table from '../components/Table'
 import { datas } from '../Datas/datas_account.js'
 
 function TransactionsPage() {
@@ -23,7 +24,10 @@ function TransactionsPage() {
           <div className="text-3xl font-semibold">${findIndex.amount}</div>
           <div className="font-light">{findIndex.description}</div>
         </div>
-        <div>Table React</div>
+        <div className="bg-[#E0E6ED] h-full py-32">
+          <Table />
+        </div>
+
         <Footer />
       </div>
     )
