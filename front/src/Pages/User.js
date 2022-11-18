@@ -5,6 +5,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { isEditing } from '../store/user'
 import Transaction from '../components/Transaction'
+import { datas } from '../Datas/datas_account.js'
 
 function User() {
   const dispatch = useDispatch()
@@ -98,8 +99,10 @@ function User() {
         >
           Edit Name
         </button>
-        <div className="w-[100vh] mt-12">
-          <Transaction />
+        <div className="w-[100vh] mt-12 flex flex-col gap-5">
+          {datas.map((data) => {
+            return <Transaction key={data.index} {...data} />
+          })}
         </div>
       </div>
 
