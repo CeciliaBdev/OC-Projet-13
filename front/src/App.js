@@ -12,7 +12,10 @@ function App() {
         <Route path="/" element={<Index />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/user" element={<User />} />
-        <Route path="/User/account/:index" element={<TransactionsPage />} />
+        <Route
+          path="/user/account/:account_ID"
+          element={<TransactionsPage />}
+        />
       </Routes>
     </div>
   )

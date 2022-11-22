@@ -11,8 +11,8 @@ function TransactionsPage() {
   // console.log(id['index'])
   // console.log('js', id.index)
 
-  const findIndex = datas.find((item) => item.index === id.index)
-  // console.log('findindex', findIndex)
+  const findIndex = datas.find((item) => item.account_ID === id.account_ID)
+  console.log('findindex', findIndex)
   if (findIndex === undefined) {
     console.log('index non trouvé')
   } else

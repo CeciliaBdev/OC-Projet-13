@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function Transaction({ index, title, amount, description }) {
+function Transaction({ account_ID, title, amount, description }) {
   return (
     // <div className="w-full flex flex-col gap-5">
     <div className="border border-red w-[100%] h-24 text-left p-4  text-slate-500 text-base bg-white flex justify-between items-center">
@@ -13,7 +13,7 @@ function Transaction({ index, title, amount, description }) {
         type="button"
         className="border bg-[indigo] rounded h-10 w-48 text-white"
       >
-        <Link to={`/user/account/${index}`}>View Description</Link>
+        <Link to={`/user/account/${account_ID}`}>View Description</Link>
       </button>
       {/* </div> */}
     </div>

@@ -101,7 +101,7 @@ function User() {
         </button>
         <div className="w-[100vh] mt-12 flex flex-col gap-5">
           {datas.map((data) => {
-            return <Transaction key={data.index} {...data} />
+            return <Transaction key={data.account_ID} {...data} />
           })}
         </div>
       </div>
