@@ -9,19 +9,28 @@ import Footer from '../components/Footer'
 import axios from 'axios'
 
 function SignIn() {
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
-
+  // état initial: un mail présent dans le local storage ou vide
+  const [email, setEmail] = useState(localStorage.getItem('email' || ''))
+  const [password, setPassword] = useState(
+    localStorage.getItem('password' || '')
+  )
+  const [rememberMe, setRememberMe] = useState(false)
   const nav = useNavigate()
   const dispatch = useDispatch()
 
   // envoi formulaire
   const handleSubmit = async (e) => {
+    let emailLocalStrorage
+    let passwordLocalStorage
     e.preventDefault()
-    console.log('email', email)
-    console.log('password', password)
-    // console.log('id', id)
-
+    if (rememberMe) {
+      // je mets email dans le local storage
+      emailLocalStrorage = localStorage.setItem('email', email)
+      passwordLocalStorage = localStorage.setItem('password', password)
+    } else {
+      emailLocalStrorage = localStorage.removeItem('email')
+      passwordLocalStorage = localStorage.removeItem('password')
+    }
     // response body swagger
     // {
     //   "status": 200,
@@ -86,6 +95,7 @@ function SignIn() {
                 id="username"
                 className="form-control block px-4 py-2 border border-solid border-[#2c3e50] w-[100%] mb-3 rounded"
                 onChange={(e) => setEmail(e.target.value)}
+                defaultValue={email}
                 placeholder="entrer votre email"
                 required
               />
@@ -95,15 +105,19 @@ function SignIn() {
                 id="password"
                 className="form-control block px-4 py-2 border border-solid border-[#2c3e50] w-[100%] rounded"
                 onChange={(e) => setPassword(e.target.value)}
+                defaultValue={password}
                 required
               />
               <div className="flex gap-3 my-3">
-                <input id="remeber" type="checkbox" />
+                <input
+                  id="remember"
+                  type="checkbox"
+                  onClick={() => setRememberMe(!rememberMe)}
+                />
                 <label htmlFor="remember" className="font-light">
                   Remember me
                 </label>
               </div>
-
               <button
                 type="submit"
                 className="bg-[#00bc77] p-2 w-full w-18 block my-3 text-white underline"
