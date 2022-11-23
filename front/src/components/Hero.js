@@ -2,7 +2,7 @@ import banktree from '../assets/bank-tree.jpeg'
 function Hero() {
   return (
     <div>
-      <div className="relative">
+      <div className="relative mb-5">
         <img
           src={banktree}
           alt=""
@@ -12,7 +12,7 @@ function Hero() {
             objectFit: 'cover',
           }}
         />
-        <div className="absolute top-1/4  bg-white p-8 w-72 right-20">
+        <div className="absolute top-1/4  bg-white p-8 w-72 right-20 s:right-16">
           <h2 className="font-bold">No fees.</h2>
           <h2 className="font-bold">No minimum deposit.</h2>
           <h2 className="font-bold">High interest rates.</h2>

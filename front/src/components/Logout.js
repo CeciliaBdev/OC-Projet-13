@@ -16,8 +16,8 @@ function Logout() {
   // const [lastName, setLastName] = useState(user.lastName)
 
   return (
-    <div className="header flex items-center justify-between border">
-      <div className="w-60 ml-5">
+    <div className="header flex items-center justify-between border s:h-18">
+      <div className="md:w-60 s:w-32 ml-5">
         <Link to="/">
           <img src={logo} alt="logo application" />
         </Link>

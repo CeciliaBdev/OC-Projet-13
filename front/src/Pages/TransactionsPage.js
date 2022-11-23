@@ -19,7 +19,7 @@ function TransactionsPage() {
     return (
       <div>
         <Logout />
-        <div className="border flex flex-col items-center w-full h-content py-5">
+        <div className="border flex flex-col items-center w-full h-content py-5 ">
           <h1>{findIndex.title}</h1>
           <div className="text-3xl font-semibold">${findIndex.amount}</div>
           <div className="font-light">{findIndex.description}</div>

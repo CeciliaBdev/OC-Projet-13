@@ -17,12 +17,20 @@ function Table() {
     tableInstance
 
   return (
-    <table {...getTableProps()} className="w-[80vw] mx-auto  text-center">
+    <table
+      {...getTableProps()}
+      className="w-[80vw] mx-auto  text-center sm:text-base s:text-xs"
+    >
       <thead>
         {headerGroups.map((headergroup) => (
           <tr {...headergroup.getHeaderGroupProps()}>
             {headergroup.headers.map((column) => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+              <th
+                {...column.getHeaderProps()}
+                className="sm:text-base s:text-xs"
+              >
+                {column.render('Header')}
+              </th>
             ))}
           </tr>
         ))}

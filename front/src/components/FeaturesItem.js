@@ -25,36 +25,38 @@ const datasMocked = [
 
 function FeaturesItem() {
   return (
-    <div className="grid grid-cols-3 h-[50vh] justify-items-center items-center">
-      {datasMocked.map((data) => {
-        let image
+    <div className="">
+      <div className="grid md:grid-cols-3 md:h-[50vh] justify-items-center items-center sm:grid-cols-1 sm:h-[100%]">
+        {datasMocked.map((data) => {
+          let image
 
-        // affichage de l'icone suivant le 'type'
-        if (data.type === 'chat') {
-          image = <img src={icon_chat} alt="Chat Icon" className="w-24 " />
-        }
-        if (data.type === 'money') {
-          image = <img src={icon_money} alt="Money Icon" className="w-24" />
-        }
-        if (data.type === 'security') {
-          image = (
-            <img src={icon_security} alt="Security Icon" className="w-24" />
-          )
-        }
+          // affichage de l'icone suivant le 'type'
+          if (data.type === 'chat') {
+            image = <img src={icon_chat} alt="Chat Icon" className="w-24 " />
+          }
+          if (data.type === 'money') {
+            image = <img src={icon_money} alt="Money Icon" className="w-24" />
+          }
+          if (data.type === 'security') {
+            image = (
+              <img src={icon_security} alt="Security Icon" className="w-24" />
+            )
+          }
 
-        return (
-          <div
-            key={data.title}
-            className=" text-center flex flex-col gap-3 w-64 h-72 "
-          >
-            <div className="h-40 w-40  p-5 border-[10px] border-[#00bc77] rounded-full mx-auto">
-              {image}
+          return (
+            <div
+              key={data.title}
+              className=" text-center flex flex-col gap-3 w-64 h-72 s:h-80"
+            >
+              <div className="h-40 w-40  p-5 border-[10px] border-[#00bc77] rounded-full mx-auto ">
+                {image}
+              </div>
+              <p className="font-bold">{data.title}</p>
+              <p className="font-light text-sm">{data.text}</p>
             </div>
-            <p className="font-bold">{data.title}</p>
-            <p className="font-light text-sm">{data.text}</p>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
     </div>
   )
 }

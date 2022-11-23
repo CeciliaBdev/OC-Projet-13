@@ -5,7 +5,7 @@ import Hero from '../components/Hero'
 
 function Index() {
   return (
-    <div>
+    <div className="container mx-auto">
       <Header />
       <Hero />
       <FeaturesItem />
