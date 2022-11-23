@@ -1,9 +1,8 @@
 import logo from '../assets/argentBankLogo.png'
 import { Link } from 'react-router-dom'
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import { logout } from '../store/user'
 // import { useState } from 'react'
 

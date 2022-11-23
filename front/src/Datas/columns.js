@@ -6,7 +6,12 @@ export const COLUMNS = [
     accessor: 'chevron',
     Cell: () => (
       <div className="pl-8">
-        <img src={chevron} alt="chevron" width="20px" />
+        <img
+          src={chevron}
+          alt="chevron"
+          width="20px"
+          // onClick={() => console.log('click')}
+        />
       </div>
     ),
   },

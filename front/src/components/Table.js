@@ -35,8 +35,11 @@ function Table() {
             <tr {...row.getRowProps()} className="border">
               {row.cells.map((cell) => {
                 return (
-                  <td {...cell.getCellProps()} className="py-4 ">
-                    {/* <i className="fa-sharp fa-solid fa-chevron-down"></i> */}
+                  <td
+                    {...cell.getCellProps()}
+                    className="py-4 "
+                    onClick={() => console.log(cell.row.original)}
+                  >
                     {cell.render('Cell')}
                   </td>
                 )

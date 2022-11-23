@@ -4,27 +4,35 @@
     "date": "June 20th 2020",
     "description": "Golden Sun Bakery",
     "amount": "$5.00",
-    "balance": "$2,089"
+    "balance": "$2,089",
+    "category":"",
+    "notes":""
   },
   {
     "transaction_ID": "xxx2",
     "date": "June 20th 2020",
     "description": "Golden Sun Bakery",
     "amount": "$10.00",
-    "balance": "$2,989"
+    "balance": "$2,989",
+    "category":"",
+    "notes":""
   },
   {
     "transaction_ID": "xxx3",
     "date": "June 20th 2020",
     "description": "Golden Sun Bakery",
     "amount": "$5.00",
-    "balance": "$2,089"
+    "balance": "$2,089",
+    "category":"",
+    "notes":""
   },
   {
     "transaction_ID": "xxx4",
     "date": "June 20th 2020",
     "description": "Golden Sun Bakery",
     "amount": "$10.00",
-    "balance": "$2,989"
+    "balance": "$2,989",
+    "category":"",
+    "notes":""
   }
 ]
