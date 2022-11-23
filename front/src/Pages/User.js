@@ -21,21 +21,33 @@ function User() {
     setClicked((clicked) => !clicked) // menu apparait (flex)
   }
 
+  let token = localStorage.getItem('userToken')
+
   // je modifie l'identité du user et je sauvegarde
   const saveName = () => {
     console.log('firstname save:', firstName)
     console.log('lastname save:', lastName)
     // puis mettre a jour user.firstName - user.lastName (reducer) avec un put
+
+    let config = {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    }
     axios
-      .put('http://localhost:3001/api/v1/user/profile', {
-        firstName: firstName,
-        lastName: lastName,
-      })
+      .put(
+        'http://localhost:3001/api/v1/user/profile',
+        {
+          firstName: firstName,
+          lastName: lastName,
+        },
+        config
+      )
       .then((response) => dispatch(isEditing(response.data.body)))
   }
 
   const cancelName = () => {
-    console.log('cancel')
+    // console.log('cancel')
     setClicked((clicked) => !clicked) // menu apparait (flex)
   }
 

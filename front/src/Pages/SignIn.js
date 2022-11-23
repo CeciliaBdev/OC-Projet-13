@@ -15,21 +15,22 @@ function SignIn() {
     localStorage.getItem('password' || '')
   )
   const [rememberMe, setRememberMe] = useState(false)
+
   const nav = useNavigate()
   const dispatch = useDispatch()
 
   // envoi formulaire
   const handleSubmit = async (e) => {
-    let emailLocalStrorage
-    let passwordLocalStorage
+    // let emailLocalStrorage
+    // let passwordLocalStorage
     e.preventDefault()
     if (rememberMe) {
       // je mets email dans le local storage
-      emailLocalStrorage = localStorage.setItem('email', email)
-      passwordLocalStorage = localStorage.setItem('password', password)
+      setEmail(localStorage.setItem('email', email))
+      setPassword(localStorage.setItem('password', password))
     } else {
-      emailLocalStrorage = localStorage.removeItem('email')
-      passwordLocalStorage = localStorage.removeItem('password')
+      setEmail(localStorage.removeItem('email'))
+      setPassword(localStorage.removeItem('password'))
     }
     // response body swagger
     // {

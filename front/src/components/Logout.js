@@ -4,17 +4,17 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { useState } from 'react'
 import { logout } from '../store/user'
+// import { useState } from 'react'
 
 function Logout() {
   // const { userInfo, userToken } = useSelector((state) => state.user)
   const Dispatch = useDispatch()
   const Nav = useNavigate()
 
-  const user = useSelector((state) => state.user)
-  const [firstName, setFirstName] = useState(user.firstName)
-  const [lastName, setLastName] = useState(user.lastName)
+  const user = useSelector((state) => state.user.user)
+  // const [firstName, setFirstName] = useState(user.firstName)
+  // const [lastName, setLastName] = useState(user.lastName)
 
   return (
     <div className="header flex items-center justify-between border">
