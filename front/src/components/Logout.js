@@ -11,7 +11,7 @@ function Logout() {
   const Dispatch = useDispatch()
   const Nav = useNavigate()
 
-  const user = useSelector((state) => state.user.user)
+  const user = useSelector((state) => state.user)
   // const [firstName, setFirstName] = useState(user.firstName)
   // const [lastName, setLastName] = useState(user.lastName)
 

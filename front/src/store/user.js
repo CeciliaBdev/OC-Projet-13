@@ -38,17 +38,17 @@ const userSlice = createSlice({
     isEditing: (state, action) => {
       // on recupere la nouvelle 'identité'
       // tester ici le destructuring et verifier si 'bug' dans le changement
-      // state.firstName = action.payload.firstName
-      // state.lastName = action.payload.lastName
-      // state.isEdit = true // on a édité l'user
+      state.firstName = action.payload.firstName
+      state.lastName = action.payload.lastName
+      state.isEdit = true // on a édité l'user
 
-      //on créé une copie du user pour le modifier
-      state.user = {
-        ...state.user,
-        firstName: action.payload.firstName,
-        lastName: action.payload.lastName,
-        isEdit: true,
-      }
+      //on peut créer une copie du user pour le modifier: ici inutil dans le projet
+      // state.user = {
+      //   ...state.user,
+      //   firstName: action.payload.firstName,
+      //   lastName: action.payload.lastName,
+      //   isEdit: true,
+      // }
     },
   },
 })
