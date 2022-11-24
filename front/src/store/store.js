@@ -15,6 +15,7 @@ const persistedReducer = persistReducer(persistConfig, reducers)
 
 const store = configureStore({
   reducer: persistedReducer,
+  // facilite la gestion des fcts asynchrones
   middleware: [thunk],
 })
 
