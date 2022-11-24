@@ -11,9 +11,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/login" element={<SignIn />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/profile" element={<User />} />
         <Route
-          path="/user/account/:account_ID"
+          path="/profile/account/:account_ID"
           element={<TransactionsPage />}
         />
       </Routes>

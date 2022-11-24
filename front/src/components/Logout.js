@@ -24,7 +24,7 @@ function Logout() {
       </div>
       <div className="flex">
         <Link
-          to="/user"
+          to="/profile"
           className="flex items-center justify-around gap-2 mr-5"
         >
           <i className="fa-solid fa-circle-user"></i>

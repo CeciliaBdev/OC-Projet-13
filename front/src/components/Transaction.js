@@ -13,7 +13,7 @@ function Transaction({ account_ID, title, amount, description }) {
         type="button"
         className="border bg-[indigo] rounded h-10 w-48 text-white"
       >
-        <Link to={`/user/account/${account_ID}`}>View Description</Link>
+        <Link to={`/profile/account/${account_ID}`}>View Description</Link>
       </button>
       {/* </div> */}
     </div>

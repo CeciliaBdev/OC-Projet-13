@@ -5,7 +5,7 @@ function Hero() {
       <div className="relative mb-5">
         <img
           src={banktree}
-          alt=""
+          alt="fond d'écran"
           style={{
             width: '100vw',
             height: '50vh',

@@ -111,6 +111,7 @@ function User() {
         >
           Edit Name
         </button>
+        {/* affichage transactions */}
         <div className="md:w-[90vw] sm:h-[100%] mt-12 flex flex-col gap-5 ">
           {datas.map((data) => {
             return <Transaction key={data.account_ID} {...data} />

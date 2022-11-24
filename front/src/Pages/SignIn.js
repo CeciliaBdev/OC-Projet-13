@@ -15,17 +15,14 @@ function SignIn() {
     localStorage.getItem('password' || '')
   )
   const [rememberMe, setRememberMe] = useState(false)
-
   const nav = useNavigate()
   const dispatch = useDispatch()
 
   // envoi formulaire
   const handleSubmit = async (e) => {
-    // let emailLocalStrorage
-    // let passwordLocalStorage
     e.preventDefault()
     if (rememberMe) {
-      // je mets email dans le local storage
+      // je mets email et password dans le local storage
       setEmail(localStorage.setItem('email', email))
       setPassword(localStorage.setItem('password', password))
     } else {
@@ -76,7 +73,7 @@ function SignIn() {
             // je recupère l'id du user
             // let id = response.data.body.id
             // nav(`/user/:${id}`)
-            nav(`/user`)
+            nav(`/profile`)
           })
       })
   }
