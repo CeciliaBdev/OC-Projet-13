@@ -71,8 +71,7 @@ function SignIn() {
             dispatch(login(response.data.body))
             // console.log('response id', response.data.body.id)
             // je recupère l'id du user
-            // let id = response.data.body.id
-            // nav(`/user/:${id}`)
+            //let id = response.data.body.id
             nav(`/profile`)
           })
       })
