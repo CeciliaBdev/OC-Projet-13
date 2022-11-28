@@ -55,7 +55,7 @@ function User() {
     <div>
       <Logout />
 
-      <div className=" flex flex-col md:h-[100vh]  w-[100vw]  bg-[#13072B]  text-white font-bold pt-8 items-center gap-3 sm:h-[100%] ">
+      <div className=" flex flex-col md:h-[90vh]  w-[100vw]  bg-[#13072B]  text-white font-bold pt-8 items-center gap-3 sm:h-[100%] ">
         <p className="text-2xl">Welcome back</p>
 
         {isEdit === false ? (
@@ -112,7 +112,7 @@ function User() {
           Edit Name
         </button>
         {/* affichage transactions */}
-        <div className="md:w-[90vw] sm:h-[100%] mt-12 flex flex-col gap-5 ">
+        <div className="md:w-[90vw] sm:h-[100%] mt-5  s:mb-12 flex flex-col gap-5 ">
           {datas.map((data) => {
             return <Transaction key={data.account_ID} {...data} />
           })}
