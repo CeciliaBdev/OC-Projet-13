@@ -23,10 +23,10 @@ mongo --version
 
 ### Instructions
 
-1. Fork this repo
-1. Clone the repo onto your computer
-1. Open a terminal window in the cloned project
-1. Run the following commands:
+## Back-end
+1. Clone this repo : https://github.com/CeciliaBdev/OC-Projet-13.git
+2.  Open a terminal window in the cloned project
+3. Run the following commands:
 
 ```bash
 # Install dependencies
@@ -39,8 +39,13 @@ npm run dev:server
 npm run populate-db
 ```
 
-Your server should now be running at http://locahost:3001 and you will now have two users in your MongoDB database!
+Your server should now be running at http://localhost:3001 and you will now have two users in your MongoDB database!
 
+## Front-end
+1. In a terminal view: go to the directory 'front' 
+2. Install the dependencies : `npm install`
+3. Start the React  application on port 3000: `npm start`
+ 
 ## Populated Database Data
 
 Once you run the `populate-db` script, you should have two users in your database:
