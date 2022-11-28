@@ -33,7 +33,8 @@ const userSlice = createSlice({
       state.lastName = null
       state.email = null
       state.login = null
-      state.userToken = null
+      state.userToken = localStorage.removeItem('userToken')
+      state.isEdit = null
     },
     isEditing: (state, action) => {
       // on recupere la nouvelle 'identité'
