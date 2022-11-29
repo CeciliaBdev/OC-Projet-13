@@ -2,12 +2,17 @@ swagger: '2.0'
 info:
   title: Bank Argent API documentation
   description: Contains all available API endpoints in this codebase
-  version: '1.0.0'
-  termsOfService: 'http://swagger.io/terms/'
+  version: 1.0.0
+  termsOfService: http://swagger.io/terms/
 host: localhost:3001
 basePath: /api/v1
 schemes:
   - http
+tags:
+  - name: User Module
+    description: Operations to manage users
+  - name: Account Module
+    description: Operations to manage transactions
 paths:
   /user/login:
     post:
@@ -70,6 +75,7 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+          type: string
       produces:
         - application/json
       responses:
@@ -93,6 +99,7 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+          type: string
         - in: body
           name: body
           description: Update user profile attributes
@@ -108,6 +115,186 @@ paths:
             $ref: '#/definitions/ApiResponse'
         '400':
           description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  /accounts:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Account Module
+      summary: User Accounts View
+      description: Get all accounts available
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: User Transaction view retrieved successully
+          schema:
+            $ref: '#/definitions/TransactionsResponse'
+        '400':
+          description: Invalid Transaction view
+        '404':
+          description: Accountn Not Found
+        '500':
+          description: Internal Server Error
+  /accounts/account_ID:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Account Module
+      summary: One account view by month
+      description: Get all transactions during the month by account
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: User Transactions by month view retrieved successully
+          schema:
+            $ref: '#/definitions/AccountResponse'
+        '400':
+          description: Invalid Transaction view by month
+        '404':
+          description: Transaction Not Found
+        '500':
+          description: Internal Server Error
+    post:
+      security:
+        - Bearer: []
+      tags:
+        - Account Module
+      summary: Add a transaction
+      description: Add another one transaction on the view
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: add some informations on this transaction
+          required: true
+          schema:
+            type: object
+            properties:
+              date:
+                type: string
+              description:
+                type: string
+              amount:
+                type: string
+              balance:
+                type: string
+              category:
+                type: string
+              notes:
+                type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: add some informations on this transaction
+          schema:
+            $ref: '#/definitions/TransactionDescription'
+        '400':
+          description: Invalid informations added
+        '500':
+          description: Internal Server Error
+  /accounts/account_ID/{transaction_ID}:
+    put:
+      security:
+        - Bearer: []
+      tags:
+        - Account Module
+      summary: More transactions details
+      description: Get all the description of the transaction with an onclick and updtate it
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+        - in: path
+          name: transaction_ID
+          description: ID of the transaction to update
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: update the transaction
+          required: true
+          schema:
+            type: object
+            properties:
+              category:
+                type: string
+              notes:
+                type: string
+      produces:
+        - application/json
+      responses:
+        '204':
+          description: Transaction updated successully
+          schema:
+            $ref: '#/definitions/TransactionDescription'
+        '400':
+          description: Invalid Transaction Description
+        '404':
+          description: Transaction Not Found
+        '500':
+          description: Internal Server Error
+    delete:
+      security:
+        - Bearer: []
+      tags:
+        - Account Module
+      summary: Removal description Transaction
+      description: Delete a transaction's description
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: transaction_ID
+          description: ID of the transaction to delete
+          type: integer
+          required: true
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token.
+          type: string
+          required: true
+        - in: body
+          name: body
+          description: update the transaction
+          required: true
+          schema:
+            type: object
+            properties:
+              category:
+                type: string
+              notes:
+                type: string
+      responses:
+        '204':
+          description: Successful Operation
+        '400':
+          description: Invalid Transaction Supplied
+        '404':
+          description: Transaction Not Found
         '500':
           description: Internal Server Error
 securityDefinitions:
@@ -163,4 +350,63 @@ definitions:
       firstName:
         type: string
       lastName:
+        type: string
+  TransactionsResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+        example: Response status message
+      body:
+        type: array
+        items:
+          type: object
+          properties:
+            account_ID:
+              type: string
+            title:
+              type: string
+            amount:
+              type: string
+            description:
+              type: string
+  AccountResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+        example: Response status message
+      body:
+        type: array
+        items:
+          type: object
+          properties:
+            transaction_ID:
+              type: string
+            title:
+              type: string
+            amount:
+              type: string
+            description:
+              type: string
+  TransactionDescription:
+    type: object
+    properties:
+      account_ID:
+        type: string
+      date:
+        type: string
+      description:
+        type: string
+      amount:
+        type: string
+      balance:
+        type: string
+      category:
+        type: string
+      notes:
         type: string
